@@ -13,9 +13,16 @@ import {
 } from "./schemas";
 import { HttpError } from "./http";
 
-export const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
-  auth: { persistSession: false, autoRefreshToken: false },
-});
+// Placeholders let `next build` import this module when no project is configured.
+// Both values are used together; a real call fails until they are set.
+const supabaseUrl = process.env.SUPABASE_URL ?? "";
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
+const supabaseConfigured = supabaseUrl.length > 0 && supabaseKey.length > 0;
+export const supabase = createClient(
+  supabaseConfigured ? supabaseUrl : "http://127.0.0.1:54321",
+  supabaseConfigured ? supabaseKey : "missing",
+  { auth: { persistSession: false, autoRefreshToken: false } },
+);
 
 // Public listing columns: floor_price and persona deliberately absent. busy_* are read only to compute `busy`.
 const LISTING_PUBLIC =
