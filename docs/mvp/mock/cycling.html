@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Haggle – Cycling starter kit</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','-apple-system','Segoe UI','Roboto','sans-serif'] },
+  colors: { brand: { 50:'#eef2ff',100:'#e0e7ff',500:'#6366f1',600:'#4f46e5',700:'#4338ca' } }
+}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<div class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-20 bg-white/85 backdrop-blur border-b border-slate-200">
+    <div class="max-w-3xl mx-auto px-5 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-brand-600 text-white grid place-items-center font-bold text-sm">H</div>
+        <span class="text-lg font-bold tracking-tight text-slate-900">Haggle</span>
+      </div>
+      <div class="flex items-center gap-2 rounded-full border border-slate-200 bg-white pl-1 pr-3 py-1 shadow-sm">
+        <div class="w-6 h-6 rounded-full bg-slate-800 text-white grid place-items-center text-[11px] font-semibold">W</div>
+        <span class="text-sm font-medium text-slate-700">Wilk <span class="text-slate-400 font-normal">(buyer)</span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Chat stream -->
+  <main class="flex-1">
+    <div class="max-w-2xl mx-auto px-5 py-8 space-y-6">
+
+      <div class="text-center text-xs text-slate-400">Today, 13:40</div>
+
+      <div class="flex justify-end">
+        <div class="max-w-[75%] rounded-2xl rounded-br-md bg-brand-600 text-white px-4 py-2.5 shadow-sm">I want to start cycling</div>
+      </div>
+
+      <div class="flex gap-3">
+        <div class="shrink-0 w-8 h-8 rounded-full bg-brand-100 text-brand-700 grid place-items-center text-sm font-semibold">✦</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-xs text-slate-400 mb-1">Your agent</div>
+          <div class="inline-block rounded-2xl rounded-tl-md bg-white border border-slate-200 px-4 py-2.5 shadow-sm">
+            Great choice. Here's a starter kit most new riders need. Untick anything you already have.
+          </div>
+
+          <div class="mt-3 rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden max-w-md">
+            <div class="px-4 pt-3 pb-2 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-semibold text-slate-900">Cycling starter kit</div>
+                <div class="text-xs text-slate-500">Bundle · 4 items · one budget</div>
+              </div>
+              <span class="text-[11px] font-medium text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">2 details missing</span>
+            </div>
+            <div class="divide-y divide-slate-100 border-t border-slate-100">
+              <label class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 cursor-pointer">
+                <input type="checkbox" checked class="peer w-4 h-4 accent-indigo-600 rounded">
+                <span class="text-lg w-6 text-center">🚲</span>
+                <span class="flex-1 min-w-0"><span class="block text-sm font-medium text-slate-900 peer-checked:text-slate-900">Bike</span><span class="block text-xs text-slate-500">Road, gravel or hybrid</span></span>
+                <span class="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">Needs details</span>
+              </label>
+              <label class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 cursor-pointer">
+                <input type="checkbox" checked class="peer w-4 h-4 accent-indigo-600 rounded">
+                <span class="text-lg w-6 text-center">⛑️</span>
+                <span class="flex-1 min-w-0"><span class="block text-sm font-medium text-slate-900 peer-checked:text-slate-900">Helmet</span><span class="block text-xs text-slate-500">Road helmet, UKCA/CE certified</span></span>
+                <span class="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">Needs size</span>
+              </label>
+              <label class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 cursor-pointer">
+                <input type="checkbox" checked class="peer w-4 h-4 accent-indigo-600 rounded">
+                <span class="text-lg w-6 text-center">🧥</span>
+                <span class="flex-1 min-w-0"><span class="block text-sm font-medium text-slate-900 peer-checked:text-slate-900">Jacket</span><span class="block text-xs text-slate-500">Lightweight, waterproof, high-vis</span></span>
+                <span class="text-xs text-slate-500 bg-slate-100 rounded-full px-2 py-0.5">Uses your size</span>
+              </label>
+              <label class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 cursor-pointer">
+                <input type="checkbox" checked class="peer w-4 h-4 accent-indigo-600 rounded">
+                <span class="text-lg w-6 text-center">🕶️</span>
+                <span class="flex-1 min-w-0"><span class="block text-sm font-medium text-slate-900 peer-checked:text-slate-900">Glasses</span><span class="block text-xs text-slate-500">Clear/tinted swappable lenses</span></span>
+                <span class="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2 py-0.5">Ready</span>
+              </label>
+            </div>
+            <div class="px-4 py-2 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+              <span>4 of 4 selected</span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd"/></svg>
+                Budget stays private
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <div class="shrink-0 w-8 h-8 rounded-full bg-brand-100 text-brand-700 grid place-items-center text-sm font-semibold">✦</div>
+        <div class="max-w-[80%]">
+          <div class="text-xs text-slate-400 mb-1">Your agent</div>
+          <div class="rounded-2xl rounded-tl-md bg-white border border-slate-200 px-4 py-3 shadow-sm space-y-2">
+            <div>To find the right matches I just need:</div>
+            <ol class="space-y-1.5 text-sm">
+              <li class="flex gap-2"><span class="shrink-0 w-5 h-5 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold grid place-items-center">1</span><span><span class="font-medium">Bike:</span> what type (road, gravel, hybrid) and your frame size? If unsure, just tell me your height.</span></li>
+              <li class="flex gap-2"><span class="shrink-0 w-5 h-5 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold grid place-items-center">2</span><span><span class="font-medium">Helmet:</span> your size (S/M/L) or head circumference in cm?</span></li>
+              <li class="flex gap-2"><span class="shrink-0 w-5 h-5 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold grid place-items-center">3</span><span><span class="font-medium">Budget:</span> the most you'd spend on the whole kit, in £?</span></li>
+            </ol>
+          </div>
+          <div class="mt-2 flex gap-2 flex-wrap">
+            <button class="text-xs font-medium rounded-full border border-slate-200 bg-white text-slate-600 px-3 py-1.5 hover:border-brand-500">Hybrid, I'm 180 cm</button>
+            <button class="text-xs font-medium rounded-full border border-slate-200 bg-white text-slate-600 px-3 py-1.5 hover:border-brand-500">Road bike, 56 cm frame</button>
+            <button class="text-xs font-medium rounded-full border border-slate-200 bg-white text-slate-600 px-3 py-1.5 hover:border-brand-500">Not sure, help me choose</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Composer -->
+  <footer class="sticky bottom-0 z-20 bg-gradient-to-t from-slate-50 via-slate-50 to-slate-50/0 pt-4 pb-5">
+    <div class="max-w-2xl mx-auto px-5">
+      <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white shadow-sm pl-4 pr-2 py-2">
+        <input class="flex-1 bg-transparent outline-none text-[15px] placeholder:text-slate-400" placeholder="Tell your agent what you need...">
+        <button class="w-9 h-9 rounded-xl bg-brand-600 text-white grid place-items-center" aria-label="Send">
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M3.1 2.3a.75.75 0 0 0-.99.9l1.95 6.05H10a.75.75 0 0 1 0 1.5H4.06l-1.95 6.05a.75.75 0 0 0 .99.9l14.5-6.5a.75.75 0 0 0 0-1.36L3.1 2.3Z"/></svg>
+        </button>
+      </div>
+      <div class="text-center text-[11px] text-slate-400 mt-2">Your agent never reveals your max price. You always confirm before paying.</div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
