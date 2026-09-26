@@ -6,11 +6,17 @@ export function MatchList({
   request,
   catalog,
   busyIds = [],
+  soldIds = [],
+  negotiating = false,
+  onNegotiate,
 }: {
   matches: ItemMatches[];
   request: BuyerRequest | null;
   catalog: ChatResponse["catalog"] | null;
   busyIds?: string[];
+  soldIds?: string[];
+  negotiating?: boolean;
+  onNegotiate?: (card: MatchCard, category: string) => void;
 }) {
   const bundled = Boolean(request?.bundle);
   return (
@@ -32,6 +38,9 @@ export function MatchList({
                   letter={letterOf(label)}
                   preferences={preferences}
                   busy={listing.busy || busyIds.includes(listing.id)}
+                  sold={listing.status === "sold" || soldIds.includes(listing.id)}
+                  negotiating={negotiating}
+                  onNegotiate={onNegotiate ? () => onNegotiate(listing, group.category) : undefined}
                 />
               ))
             )}
@@ -48,12 +57,18 @@ function MatchRow({
   letter,
   preferences,
   busy,
+  sold,
+  negotiating,
+  onNegotiate,
 }: {
   card: MatchCard;
   best: boolean;
   letter: string;
   preferences: string[];
   busy: boolean;
+  sold: boolean;
+  negotiating: boolean;
+  onNegotiate?: () => void;
 }) {
   const condition = card.attributes.condition;
   return (
@@ -101,16 +116,16 @@ function MatchRow({
       <div className="shrink-0 text-right">
         <div className="text-xs text-slate-400">asking</div>
         <div className="text-lg leading-tight font-bold text-slate-900">£{card.askingPrice}</div>
-        {card.status === "sold" ? (
+        {sold ? (
           <div className="mt-1.5 text-sm font-semibold text-slate-400">Sold</div>
         ) : (
           <button
             type="button"
-            disabled
-            title="Negotiation isn't available yet"
-            className={`mt-1.5 cursor-not-allowed rounded-lg px-3 py-1.5 text-sm opacity-50 ${
-              best ? "bg-brand-600 font-semibold text-white" : "border border-slate-200 font-medium text-slate-600"
-            }`}
+            disabled={negotiating || !onNegotiate}
+            onClick={onNegotiate}
+            className={`mt-1.5 rounded-lg px-3 py-1.5 text-sm ${
+              best ? "bg-brand-600 font-semibold text-white hover:bg-brand-700" : "border border-slate-200 font-medium text-slate-600"
+            } disabled:cursor-not-allowed disabled:opacity-50`}
           >
             Negotiate
           </button>

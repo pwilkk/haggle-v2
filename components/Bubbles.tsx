@@ -36,6 +36,27 @@ export function AgentText({ text, error }: { text: string; error?: boolean }) {
   );
 }
 
+export function Note({ text }: { text: string }) {
+  const tapped = text.match(/^(You tapped )(Negotiate|Accept deal)([\s\S]*)$/);
+  return (
+    <div className="flex justify-end">
+      <div className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-500">
+        {tapped ? (
+          <>
+            {tapped[1]}
+            <span className={`font-medium ${tapped[2] === "Accept deal" ? "text-emerald-700" : "text-slate-700"}`}>
+              {tapped[2]}
+            </span>
+            {tapped[3]}
+          </>
+        ) : (
+          text
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function TypingBubble() {
   return (
     <AgentBlock>
